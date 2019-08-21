@@ -7,13 +7,13 @@ using namespace std;
 // empty classes to represent different exceptions
 class WordContainsNoLetters {};
 class WordContainsSpace {};
+class WordIsNotQueryable {};
 
 
 class Word
 {
 public:
 	// DO NOT MODIFY THE PUBLIC INTERFACE OF THIS CLASS
-	
 	// constructor
 	Word(const string& word);		
 	// overloads is-equal-to (or equivalence) operator - this is very useful for testing, 
@@ -22,10 +22,14 @@ public:
 	// returns true if queryable, false otherwise
 	// (according to the brief, words less than 3 characters are not queryable)
 	bool isQueryable() const;
+    
 
 private:	
-	string word_;	
+    string word_;	
+    void toLower(string &input);
+    void removePunc(string &input);
+    
 };
-
+ 
 #endif
 
